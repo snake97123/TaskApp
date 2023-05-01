@@ -57,6 +57,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zeh-mt-bkV">
+                        <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hMw-88-Lfw">
                             <connections>
                                 <segue destination="fKi-PS-bYF" kind="show" id="nSX-gd-oHT"/>
@@ -108,27 +109,45 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="jEp-D2-lRb">
-                                <rect key="frame" x="0.0" y="349" width="393" height="120"/>
+                                <rect key="frame" x="0.0" y="424" width="393" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="P8e-zo-9xR"/>
                                 </constraints>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqM-pL-vkC">
+                                <rect key="frame" x="10" y="349" width="383" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i6O-F0-WDs">
+                                <rect key="frame" x="10" y="380" width="373" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hyf-PU-i1w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mXH-ps-DGE" firstAttribute="leading" secondItem="Hyf-PU-i1w" secondAttribute="leading" constant="10" id="1m7-5H-prf"/>
+                            <constraint firstItem="TqM-pL-vkC" firstAttribute="leading" secondItem="Hyf-PU-i1w" secondAttribute="leading" constant="10" id="3oI-xQ-kdC"/>
+                            <constraint firstItem="TqM-pL-vkC" firstAttribute="top" secondItem="mXH-ps-DGE" secondAttribute="bottom" constant="10" id="5QM-UU-L6X"/>
                             <constraint firstItem="Hyf-PU-i1w" firstAttribute="trailing" secondItem="NDD-To-1WD" secondAttribute="trailing" constant="10" id="6ss-wM-anO"/>
                             <constraint firstItem="KTV-ag-Fcf" firstAttribute="top" secondItem="NDD-To-1WD" secondAttribute="bottom" constant="10" id="HRI-r6-0fR"/>
                             <constraint firstItem="NDD-To-1WD" firstAttribute="leading" secondItem="Hyf-PU-i1w" secondAttribute="leading" constant="10" id="P1a-h6-qA4"/>
                             <constraint firstItem="mXH-ps-DGE" firstAttribute="top" secondItem="hoW-vp-2Pc" secondAttribute="bottom" constant="10" id="UBW-bk-Rhv"/>
                             <constraint firstItem="jEp-D2-lRb" firstAttribute="leading" secondItem="3Dm-We-6q0" secondAttribute="leading" id="UaP-r4-lNm"/>
+                            <constraint firstItem="i6O-F0-WDs" firstAttribute="leading" secondItem="Hyf-PU-i1w" secondAttribute="leading" constant="10" id="aU0-mM-NAm"/>
+                            <constraint firstItem="i6O-F0-WDs" firstAttribute="top" secondItem="TqM-pL-vkC" secondAttribute="bottom" constant="10" id="b21-IT-wnD"/>
                             <constraint firstAttribute="trailing" secondItem="jEp-D2-lRb" secondAttribute="trailing" id="e5o-fd-QzJ"/>
                             <constraint firstItem="Hyf-PU-i1w" firstAttribute="trailing" secondItem="hoW-vp-2Pc" secondAttribute="trailing" constant="10" id="fcg-EJ-h1h"/>
-                            <constraint firstItem="jEp-D2-lRb" firstAttribute="top" secondItem="mXH-ps-DGE" secondAttribute="bottom" constant="10" id="iTZ-Od-93s"/>
+                            <constraint firstItem="jEp-D2-lRb" firstAttribute="top" secondItem="i6O-F0-WDs" secondAttribute="bottom" constant="10" id="kZQ-sO-8Dv"/>
+                            <constraint firstItem="Hyf-PU-i1w" firstAttribute="trailing" secondItem="TqM-pL-vkC" secondAttribute="trailing" id="oE7-jM-bAm"/>
                             <constraint firstItem="NDD-To-1WD" firstAttribute="top" secondItem="Hyf-PU-i1w" secondAttribute="top" constant="10" id="oo6-hd-BpC"/>
+                            <constraint firstItem="Hyf-PU-i1w" firstAttribute="trailing" secondItem="i6O-F0-WDs" secondAttribute="trailing" constant="10" id="pD9-6F-oXD"/>
                             <constraint firstItem="hoW-vp-2Pc" firstAttribute="top" secondItem="KTV-ag-Fcf" secondAttribute="bottom" constant="10" id="rQU-Vf-7be"/>
                             <constraint firstItem="Hyf-PU-i1w" firstAttribute="trailing" secondItem="mXH-ps-DGE" secondAttribute="trailing" constant="10" id="udX-Ov-nZD"/>
+                            <constraint firstItem="i6O-F0-WDs" firstAttribute="top" secondItem="TqM-pL-vkC" secondAttribute="bottom" constant="10" id="vPN-h0-PNg"/>
                             <constraint firstItem="Hyf-PU-i1w" firstAttribute="trailing" secondItem="KTV-ag-Fcf" secondAttribute="trailing" constant="10" id="vvt-hR-cNm"/>
                             <constraint firstItem="hoW-vp-2Pc" firstAttribute="leading" secondItem="Hyf-PU-i1w" secondAttribute="leading" constant="10" id="zF9-j1-yg6"/>
                             <constraint firstItem="KTV-ag-Fcf" firstAttribute="leading" secondItem="Hyf-PU-i1w" secondAttribute="leading" constant="10" id="zWr-CE-JFq"/>
@@ -136,6 +155,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="T2V-qy-x4g"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="i6O-F0-WDs" id="pDh-fJ-XoF"/>
                         <outlet property="contentsTextView" destination="mXH-ps-DGE" id="jJI-Bn-YQJ"/>
                         <outlet property="datePicker" destination="jEp-D2-lRb" id="Ui1-NB-aUt"/>
                         <outlet property="titleTextField" destination="KTV-ag-Fcf" id="zUB-2e-WjX"/>
@@ -143,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMP-Q0-dwT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1795" y="-12"/>
+            <point key="canvasLocation" x="1794.6564885496182" y="-12.67605633802817"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cQ8-6S-gGN">

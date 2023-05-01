@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -19,8 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         center.requestAuthorization(options: [.alert, .sound]) {(granted, error) in
             
         }
+        migration()
         center.delegate = self
         return true
+    }
+    
+    func migration() {
+        let nextSchemaVersion = 1
+        
+        let config = Realm.Configuration(
+            schemaVersion: UInt64(nextSchemaVersion),
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < nextSchemaVersion) {
+                }
+            })
+        Realm.Configuration.defaultConfiguration = config
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

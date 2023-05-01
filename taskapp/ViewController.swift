@@ -12,8 +12,8 @@ import UserNotifications
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    let realm = try! Realm()
+//    let realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MyInMemoryRealm"))
+     let realm = try! Realm()
     //変数の初期化時にはインスタンスを使用することができない。なので設定してあげる必要がある。
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
     
@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let inputViewController: InputViewController = segue.destination as! InputViewController
@@ -46,6 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //reusequeueにcellがあれば使い、ないならば新しく作るようにしている。reusequeueの中は見れないし、コントロールすることもできないようになっている。
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let task = taskArray[indexPath.row]
         cell.textLabel?.text = task.title

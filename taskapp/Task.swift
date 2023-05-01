@@ -16,4 +16,6 @@ class Task: Object {
     @Persisted var contents = ""
     
     @Persisted var date = Date()
+    
+    @Persisted var category = ""
 }
