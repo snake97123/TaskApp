@@ -102,7 +102,7 @@ extension ViewController: UISearchBarDelegate {
                 return
             }
         searchBar.text = ""
-        taskArray = realm.objects(Task.self).filter("title == %@", searchText)
+        taskArray = realm.objects(Task.self).filter("category == %@", searchText)
         tableView.reloadData()
     }
    
