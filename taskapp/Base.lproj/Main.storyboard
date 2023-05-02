@@ -17,8 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qiy-yb-rPD">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="165" width="393" height="650"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="650" id="qkX-3z-H4D"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="pbU-4J-xdU" detailTextLabel="Fgc-Xy-ZJ2" style="IBUITableViewCellStyleSubtitle" id="CAv-KO-pV3">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -46,13 +49,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" id="093-fs-k4W">
+                                <rect key="frame" x="0.0" y="121" width="391" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VcL-FP-CE5"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qiy-yb-rPD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7YX-3y-es1"/>
+                            <constraint firstItem="qiy-yb-rPD" firstAttribute="top" secondItem="093-fs-k4W" secondAttribute="bottom" id="2Od-IE-DW3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qiy-yb-rPD" secondAttribute="trailing" id="AHC-wd-KXd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qiy-yb-rPD" secondAttribute="bottom" id="NTn-ss-edZ"/>
                             <constraint firstItem="qiy-yb-rPD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b9h-3b-hhw"/>
                         </constraints>
                     </view>
@@ -65,6 +75,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchTextField" destination="093-fs-k4W" id="pGd-MQ-pQt"/>
                         <outlet property="tableView" destination="qiy-yb-rPD" id="wVX-Z7-AhL"/>
                         <segue destination="fKi-PS-bYF" kind="show" identifier="cellSegue" id="QwO-Kx-Dcm"/>
                     </connections>

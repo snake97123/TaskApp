@@ -11,6 +11,7 @@ import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var searchTextField: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 //    let realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MyInMemoryRealm"))
      let realm = try! Realm()
@@ -23,6 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.fillerRowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
+        searchTextField.delegate = self
     }
     
    
@@ -40,6 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
         tableView.reloadData()
     }
     
@@ -92,4 +95,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
 }
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            guard let searchText = searchBar.text else {
+                return
+            }
+        searchBar.text = ""
+        taskArray = realm.objects(Task.self).filter("title == %@", searchText)
+        tableView.reloadData()
+    }
+   
+}
+
 
