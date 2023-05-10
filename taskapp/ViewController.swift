@@ -102,7 +102,11 @@ extension ViewController: UISearchBarDelegate {
                 return
             }
         searchBar.text = ""
-        taskArray = realm.objects(Task.self).filter("category == %@", searchText)
+        if searchText != ""{
+            taskArray = realm.objects(Task.self).filter("category == %@", searchText)
+        } else {
+            taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+        }
         tableView.reloadData()
     }
    
